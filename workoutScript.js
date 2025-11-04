@@ -1,8 +1,14 @@
 populateTable()
 
-function populateTable() {
-   const table = document.querySelector("workout_table")
+function populateTable(liftDay) {
+    const table = document.querySelector("workout_table")
+    // collect JSON data
 
-   let tr = document.createElement("tr")
+    let numExercises = 2 // will be the number of exercises in the JSON
+    for(let i = 0; i < numExercises; i++) {
+        let tr = document.createElement("tr")
+        // add text of the exercises to the tr
+        // add the tr to the table
+   }
    
 }
