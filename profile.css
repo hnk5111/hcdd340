@@ -1,0 +1,21 @@
+* {
+    font-size: 16px;
+}
+#profileGrid {
+    display: grid;
+    background-color: yellow;
+    grid-template-columns: 10em 10em;
+    grid-template-rows: 10em 30em;
+    img {
+        width: 10em;
+        height: 10em;
+    }
+}
+#profileGrid * {
+    background-color: purple;
+}
+
+/* #profileText {
+    display: flex;
+    flex-direction: column;
+} */

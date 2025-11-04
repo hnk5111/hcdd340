@@ -1,8 +1,9 @@
 populateTable()
 
+// liftDay: String
 function populateTable(liftDay) {
     const table = document.querySelector("workout_table")
-    // collect JSON data
+    // collect JSON data based on the liftDay
 
     let numExercises = 2 // will be the number of exercises in the JSON
     for(let i = 0; i < numExercises; i++) {
