@@ -4,9 +4,19 @@
     <!-- website width is now the device width instead of the default -->
     <meta name="viewport" 
     content="width=device-width, initial-scale=1">
-    <script src = "script.js"></script>
+    <script src = "workoutScript.js"></script>
+    <title>During Workouts</title>
 </head>
 <body>
-    this is desktop
+
+    <button onclick="populateTable('heavy1')"> heavy 1 </button>
+    <button onclick="populateTable('heavy2')"> heavy 2</button>
+    <button onclick="populateTable('heavy3')"> heavy 3</button>
+
+    <table id = "workout_table">
+        <th>exercise</th>
+        <th>sets</th>
+        <th>reps</th>      
+    </table>
 </body>
 </html>

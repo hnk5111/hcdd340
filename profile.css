@@ -1,0 +1,68 @@
+* {
+    font-size: 16px;
+}
+#profileGrid {
+    display: grid;
+    background-color: yellow;
+    grid-template-columns: 10em 100%;
+
+
+    /* grid-template-rows: 10em 30em; */
+    img {
+        width: 10em;
+        height: 10em;
+    }
+}
+#profileGrid * {
+    background-color: #FE78CC;
+}
+
+
+/* #profileText {
+    display: flex;
+    flex-direction: column;
+} */
+
+
+#profileContent {
+    display: flex;
+    flex-wrap: wrap;
+    div img {
+        width: 15em;
+        height: 15em;
+    }
+}
+
+
+#profilePage {
+    display: flex;
+    /* grid-template-columns: 10em auto; */
+    flex: 10em auto;
+}
+
+
+/* content disappears at this screen width (i.e. for mobile view) */
+@media screen and (max-width: 700px) {
+    #nav {
+        display: none
+    }
+}
+@media screen and (min-width: 701px) {
+    #nav {
+        display: grid;
+        grid-template-rows: 3em 3em 3em;
+        gap: 1em;
+        background-color: lightgray;
+    }
+}
+
+
+#previousWorkout {
+    display:grid;
+    grid-template-rows: 1.5em 2em 2em;
+    background-color: lightgray;
+    border-color: black;
+    height: 10em
+}
+
+
