@@ -48,7 +48,7 @@
         background-color: cyan;
     }
     ul::column {
-        scroll-snap-align: right;
+        scroll-snap-align: center;
     }
     ul::scroll-button(*) {
         border: 0;
@@ -59,41 +59,46 @@
         cursor: pointer;
     }
 
+    /* highlights the arrow button when hovered/focused */
     ul::scroll-button(*):hover,
     ul::scroll-button(*):focus {
-    opacity: 1;
+        opacity: 1;
     }
 
     ul::scroll-button(*):active {
     translate: 1px 1px;
     }
 
+    /* when the carousel is all the way to right or left, the corresponding arrow has these changes */
     ul::scroll-button(*):disabled {
-    opacity: 0.2;
-    cursor: unset;
+        opacity: 0.2;
+        cursor: unset;
     }
 
-    /* the top left of the scrolling is  */
+    /* the top left of the scrolling is this text */
     ul::scroll-button(left) {
         content: "<-";
     }
 
+    /* the top left of the scrolling is this text */
     ul::scroll-button(right) {
-    content: "->";
+        content: "->";
     }
 
     ul {
-    anchor-name: --my-carousel;
+        anchor-name: --my-carousel;
     }
 
+    /* arrows are placed based on the position of the ul (look above) */
     ul::scroll-button(*) {
-    position: absolute;
-    position-anchor: --my-carousel;
+        position: absolute;
+        position-anchor: --my-carousel;
     }
 
+    /* positions the scroll button */
     ul::scroll-button(left) {
-    right: calc(anchor(left) - 70px);
-    bottom: calc(anchor(top) + 13px);
+        right: calc(anchor(left) - 4em);
+        bottom: calc(anchor(top) + 1em);
     }
 
     ul::scroll-button(right) {
