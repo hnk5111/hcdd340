@@ -14,46 +14,49 @@
     ul {
         /* vw is viewport width */
         /* 100vw is 100% of the viewport width */
-    width: 100vw; 
-    height: 20em;
-    /* padding: 10px; */
-    padding: 1em;
+        width: 100vw; 
+        height: 20em;
+        /* padding: 10px; */
+        padding: 1em;
 
-    /* enables side scrolling for elements that exceed the side of the page */
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+        /* enables side scrolling for elements that exceed the side of the page */
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
 
-    columns: 1;
-    text-align: center;
+        /* each li is equidistant */
+        /* columns: 2 would make items grouped into 2 groups */
+        columns: 1;
+        text-align: center;
     }
     li {
         list-style-type: none;
 
+        /* allows for the single row equidistant boxes */
         display: inline-block;
         height: 100%;
-        width: 200px;
+        width: 10em;
 
         background-color: #eeeeee;
         border: 1px solid #dddddd;
-        padding: 20px;
-        margin: 0 10px;
+        padding: 1.5em;
+        margin: 0 1.5em;
 
         text-align: left;
     }
 
     li:nth-child(even) {
-    background-color: cyan;
+        background-color: cyan;
     }
     ul::column {
-    scroll-snap-align: center;
+        scroll-snap-align: right;
     }
     ul::scroll-button(*) {
-    border: 0;
-    font-size: 2rem;
-    background: none;
-    color: black;
-    opacity: 0.7;
-    cursor: pointer;
+        border: 0;
+        font-size: 2rem;
+        background: none;
+        color: black;
+        opacity: 0.7;
+        cursor: pointer;
     }
 
     ul::scroll-button(*):hover,
@@ -70,8 +73,9 @@
     cursor: unset;
     }
 
+    /* the top left of the scrolling is  */
     ul::scroll-button(left) {
-    content: "<-";
+        content: "<-";
     }
 
     ul::scroll-button(right) {
