@@ -63,9 +63,14 @@ function generateSuggestedInventory() {
     let suggestions = ["water","wrist straps", "lifting belt", "carbs"]
     let div = document.querySelector("#suggestedInventoryItems")
 
-    for(let i = 0; i < suggestions.length; i++) {
-        let button = document.createElement("button")
-        button.textContent = suggestions[i]
-        div.append(button)
-    }
+
+    // FIGURE THIS OUT
+    let button = document.createElement("button")
+    button.textContent = "suggestions[0]"
+    div.append(button)
+    // for(let i = 0; i < suggestions.length; i++) {
+    //     let button = document.createElement("button")
+    //     button.textContent = suggestions[i]
+    //     div.append(button)
+    // }
 }
