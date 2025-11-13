@@ -56,9 +56,12 @@ function addListItem() {
     /* <label for="vehicle1"> I have a bike</label><br></br> */
 }
 
+// runs on startup
+generateSuggestedInventory()
 function generateSuggestedInventory() {
+    // Hannah update this list if needed
     let suggestions = ["water","wrist straps", "lifting belt", "carbs"]
-    let div = document.querySelector("suggestedInventoryItems")
+    let div = document.querySelector("#suggestedInventoryItems")
 
     for(let i = 0; i < suggestions.length; i++) {
         let button = document.createElement("button")

@@ -1,0 +1,36 @@
+html {
+    /* light mode by default */
+    color-scheme: light;
+}
+
+/* content disappears at this screen width (i.e. for mobile view) */
+@media screen and (max-width: 700px) {
+    #navBar {
+        display: none
+    }
+}
+@media screen and (min-width: 701px) {
+    #navBar {
+        display: grid;
+        grid-template-rows: repeat(3em);
+        gap: 1em;
+        background-color: lightgray;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    html {
+        color-scheme: light;
+    }
+}
+
+/* dark mode rules */
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+    img {
+        /* tones down image brightness */
+        filter: brightness(.8) contrast(1.2)
+    }
+}
