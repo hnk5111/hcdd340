@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Calendar</title>
+    <link rel="stylesheet" href="calendar.css" />
+</head>
+<body>
+<main class="calendar-page">
+    <section class="calendar-container">
+        <header class="calendar-header">
+            <button id="prevMonth" type="button">‹</button>
+            <h2 id="monthYear"></h2>
+            <button id="nextMonth" type="button">›</button>
+        </header>
+
+        <div class="weekday-row">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+        </div>
+
+        <div class="calendar-grid" id="calendarGrid">
+            <!-- Days will be inserted with JavaScript -->
+        </div>
+    </section>
+</main>
+
+<script src="calendar.js"></script>
+</body>
+</html>
