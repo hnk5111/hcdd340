@@ -10,6 +10,11 @@ function populateTable(liftDay) {
         let tr = document.createElement("tr")
         // add text of the exercises to the tr
         // add the tr to the table
-   }
-   
+    }
+}
+
+
+function collapse() {
+    let tr = document.querySelector("row1")
+    tr.classList.toggle("collapse")
 }

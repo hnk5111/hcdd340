@@ -5,18 +5,22 @@
     <meta name="viewport" 
     content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="workout.css">
     <script src = "workoutScript.js"></script>
     <title>During Workouts</title>
 </head>
 <body>
 
 
-    <div id = 'exercise_list'>
+    <!-- <div id = 'exercise_list'>
         <div class="individual_exercise">
-            <h1> Exercise Name </h1> <button>expand</button>
-            <h4> set 1: RPE n, n Reps</h4>
-            <h4> set 2: RPE n, n Reps</h4>
-            <h4> set 3: RPE n, n Reps</h4>
+            <h1> Exercise Name </h1> 
+            <button>expand</button>
+            <div id="sets_exercise1">
+                <h4> set 1: RPE n, n Reps</h4>
+                <h4> set 2: RPE n, n Reps</h4>
+                <h4> set 3: RPE n, n Reps</h4>
+            </div>
         </div>
         <div class="individual_exercise">
             <h1> Exercise Name </h1> <button>expand</button>
@@ -30,17 +34,24 @@
             <h4> set 2: RPE n, n Reps</h4>
             <h4> set 3: RPE n, n Reps</h4>
         </div>
-    </div>
+    </div> -->
 
 
-    <!-- <button onclick="populateTable('heavy1')"> heavy 1 </button>
+    <button onclick="populateTable('heavy1')"> heavy 1 </button>
     <button onclick="populateTable('heavy2')"> heavy 2</button>
     <button onclick="populateTable('heavy3')"> heavy 3</button>
 
     <table id = "workout_table">
-        <th>exercise</th>
+        <!-- scope="col" indicates that these are headers for columns -->
+        <th scope="col">exercise</th>
         <th>sets</th>
-        <th>reps</th>      
-    </table> -->
+        <th>reps</th>
+        <button onclick="collapse()"></button>
+        <tr id="row1">
+            <td>thing 1</td>
+            <td>thing 1</td>
+            <td>thing 1</td>
+        </tr>
+    </table>
 </body>
 </html>
