@@ -1,5 +1,6 @@
 <link rel="manifest" href="pwa-manifest.json" />
-
+<link rel=icon href="./icons/barbell.jpg" />
+<link rel="apple-touch-icon" href="./icons/barbell.jpg" />
 
 {
     "name": "PWA for PoWR - HCDD 340",
