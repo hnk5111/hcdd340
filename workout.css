@@ -7,6 +7,22 @@ table, td, th {
     border: 1px solid green
 }
 
+table {
+    background-color: #DDDDDD;
+    border: 1px solid pink
+}
+
+td {
+    height: 5em;
+
+    input {
+        width: 5em;
+        height: 5em;
+    }
+}
+
+
+
 #workout_table {
 }
 

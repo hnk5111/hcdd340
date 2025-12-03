@@ -6,7 +6,7 @@
     content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="workout.css">
-    <script src = "workoutScript.js"></script>
+    <script defer src = "workoutScript.js"></script>
     <title>During Workouts</title>
 </head>
 <body>
@@ -39,21 +39,13 @@
 
     <!-- eventually these will populate based on localStorage -->
      <!-- localStorage will host the actual exercises, likely in a JSON -->
-    <button onclick="populateTable('heavy1')"> heavy 1 </button>
+    
+    <!-- <button onclick="populateTable('heavy1')"> heavy 1 </button>
     <button onclick="populateTable('heavy2')"> heavy 2</button>
-    <button onclick="populateTable('heavy3')"> heavy 3</button>
+    <button onclick="populateTable('heavy3')"> heavy 3</button> -->
 
-    <!-- scope="col" indicates that these are headers for columns -->
-    <!-- <table id = "workout_table">
-        <th scope="col">exercise</th>
-        <th>sets</th>
-        <th>reps</th>
-        <button onclick="collapse()"></button>
-        <tr id="row1">
-            <td>thing 1</td>
-            <td>thing 1</td>
-            <td>thing 1</td>
-        </tr>
-    </table> -->
+    <div id = "tables_div">
+       <button onclick="defaultWorkoutTable('heavy1')"> heavy1 </button>
+    </div>
 </body>
 </html>
