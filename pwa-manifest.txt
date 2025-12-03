@@ -1,0 +1,17 @@
+<link rel="manifest" href="pwa-manifest.json" />
+<link rel=icon href="./icons/barbell.jpg" />
+<link rel="apple-touch-icon" href="./icons/barbell.jpg" />
+
+{
+    "name": "PWA for PoWR - HCDD 340",
+    "short_name": "PoWR",
+    "description": "Progressive Web App for the HCDD 340 Final",
+    "start_url": "/",
+    "display": "minimal-ui",
+    "icons": [
+        {
+            "src": "icons/barbell.jpg",
+            "sizes": "96x96"
+        }
+    ]
+}

@@ -1,14 +1,14 @@
-[
-    {
+{
+    "one" : {
         "name": "heavy1",
         "day": 1,
         "isHeavyDay": true,
         "exercises": ["pause bench", "1rm bench"]
     },
-    {
-        "name": "heavy1",
-        "day": 1,
+    "two" : {
+        "name": "heavy2",
+        "day": 2,
         "isHeavyDay": true,
         "exercises": ["pause squat", "1rm squat"]
     }
-]
+}
