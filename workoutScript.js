@@ -13,12 +13,29 @@
 //     }
 // }
 
+
+let default_workouts = {
+    "one" : {
+        "name": "heavy1",
+        "day": 1,
+        "isHeavyDay": true,
+        "exercises": ["pause bench", "1rm bench"]
+    },
+    "two" : {
+        "name": "heavy2",
+        "day": 2,
+        "isHeavyDay": true,
+        "exercises": ["pause squat", "1rm squat"]
+    }
+}
+
+
 tableWorkout()
 function tableWorkout() {
-    let table = document.createElement("table")
+    // let table = document.createElement("table")
 
-    let workoutData = JSON.parse("exercisesList.json")
-    console.log(workoutData)
+
+    console.log(default_workouts);
 }
 
 
