@@ -1,6 +1,4 @@
-import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.esm.js';
-
-// script.js — responsive edition (ES module)
+// --- Data & storage ---
 const DEFAULT_WORKOUTS = [
   {
     id: '1',
@@ -47,21 +45,27 @@ const DEFAULT_WORKOUTS = [
 const STORAGE_KEY = 'responsive_workouts_v1';
 let workouts = loadWorkouts();
 
+// --- Load / save ---
 function loadWorkouts() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw);
-  } catch (e) { /* ignore */ }
-  return DEFAULT_WORKOUTS.map(w => ({ ...w, exercises: w.exercises.map(e => ({...e})) }));
+  } catch (e) {}
+  return DEFAULT_WORKOUTS.map(w => ({
+    ...w,
+    exercises: w.exercises.map(e => ({ ...e }))
+  }));
 }
 
 function saveWorkouts() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(workouts));
-  } catch (e) { console.warn('storage failed', e); }
+  } catch (e) {
+    console.warn('storage failed', e);
+  }
 }
 
-/* DOM references */
+// --- DOM refs ---
 const sidebar = document.getElementById('sidebar');
 const hamburger = document.getElementById('hamburger');
 const workoutCardsEl = document.getElementById('workoutCards');
@@ -78,7 +82,7 @@ const closeDetailsBtn = document.getElementById('closeDetails');
 let wilksChart = null;
 let totalChart = null;
 
-/* Initialize on DOM ready */
+// --- Init on DOM ready ---
 document.addEventListener('DOMContentLoaded', () => {
   initSidebarBehavior();
   initCharts();
@@ -86,9 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavButtons();
 });
 
-/* ---------- Sidebar / Hamburger ---------- */
+// --- Sidebar / hamburger ---
 function initSidebarBehavior() {
-  // mobile hamburger toggles sidebar
   hamburger.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true';
     if (expanded) {
@@ -98,7 +101,6 @@ function initSidebarBehavior() {
     }
   });
 
-  // close sidebar when clicking outside on small screens
   document.addEventListener('click', (e) => {
     if (window.innerWidth <= 1000 && sidebar.classList.contains('open')) {
       const inside = sidebar.contains(e.target) || hamburger.contains(e.target);
@@ -106,7 +108,6 @@ function initSidebarBehavior() {
     }
   });
 
-  // handle escape to close modals / sidebar
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeSidebar();
@@ -115,7 +116,6 @@ function initSidebarBehavior() {
     }
   });
 
-  // set initial state (closed on narrow screens)
   if (window.innerWidth <= 1000) {
     sidebar.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
@@ -124,7 +124,6 @@ function initSidebarBehavior() {
     hamburger.setAttribute('aria-expanded', 'true');
   }
 
-  // keep sidebar behavior on resize
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1000) {
       sidebar.classList.add('open');
@@ -139,14 +138,13 @@ function initSidebarBehavior() {
 function openSidebar() {
   sidebar.classList.add('open');
   hamburger.setAttribute('aria-expanded', 'true');
-  // push main margin if needed (CSS handles it)
 }
 function closeSidebar() {
   sidebar.classList.remove('open');
   hamburger.setAttribute('aria-expanded', 'false');
 }
 
-/* ---------- Charts ---------- */
+// --- Charts ---
 function initCharts() {
   const wilksCanvas = document.getElementById('wilksChart');
   const totalCanvas = document.getElementById('totalChart');
@@ -158,7 +156,7 @@ function initCharts() {
   wilksChart = new Chart(wilksCtx, {
     type: 'line',
     data: {
-      labels: [], // filled by updateCharts()
+      labels: [],
       datasets: [{
         label: 'Wilks',
         data: [],
@@ -204,9 +202,10 @@ function initCharts() {
   });
 }
 
-
 function updateCharts() {
-  const sorted = [...workouts].sort((a,b) => new Date(a.date) - new Date(b.date));
+  if (!wilksChart || !totalChart) return;
+
+  const sorted = [...workouts].sort((a, b) => new Date(a.date) - new Date(b.date));
   const labels = sorted.map(w => formatDateLabel(w.date));
   const wilksData = sorted.map(w => w.wilksScore);
   const totalVolumes = sorted.map(w => computeTotalVolume(w));
@@ -220,7 +219,7 @@ function updateCharts() {
   totalChart.update();
 }
 
-/* ---------- Rendering ---------- */
+// --- Rendering ---
 function renderAll() {
   renderWorkoutCards();
   updateCharts();
@@ -250,11 +249,13 @@ function renderWorkoutCards() {
     });
 
     card.addEventListener('click', () => openDetails(w.id));
-    card.addEventListener('keypress', (ev) => { if(ev.key === 'Enter') openDetails(w.id); });
+    card.addEventListener('keypress', (ev) => {
+      if (ev.key === 'Enter') openDetails(w.id);
+    });
   });
 }
 
-/* ---------- Details modal ---------- */
+// --- Details modal ---
 function openDetails(id) {
   const w = workouts.find(x => x.id === id);
   if (!w) return;
@@ -273,7 +274,9 @@ function openDetails(id) {
   }
 }
 
-closeDetailsBtn.addEventListener('click', () => detailsModal.classList.add('hidden'));
+closeDetailsBtn.addEventListener('click', () => {
+  detailsModal.classList.add('hidden');
+});
 
 function buildDetailsHtml(w) {
   const rows = w.exercises.map(ex => `
@@ -293,14 +296,16 @@ function buildDetailsHtml(w) {
   `;
 }
 
-/* ---------- Add workout modal ---------- */
+// --- Add workout modal ---
 addBtn.addEventListener('click', () => {
   addModal.classList.remove('hidden');
-  addDateInput.value = new Date().toISOString().slice(0,10);
+  addDateInput.value = new Date().toISOString().slice(0, 10);
   addDateInput.focus();
 });
 
-cancelAdd.addEventListener('click', () => addModal.classList.add('hidden'));
+cancelAdd.addEventListener('click', () => {
+  addModal.classList.add('hidden');
+});
 
 saveWorkoutBtn.addEventListener('click', () => {
   const dateVal = addDateInput.value;
@@ -316,14 +321,22 @@ saveWorkoutBtn.addEventListener('click', () => {
     const reps = parseInt(row.querySelector('.ex-reps').value || '0', 10);
     const weight = parseInt(row.querySelector('.ex-weight').value || '0', 10);
     if (!name && sets === 0 && reps === 0 && weight === 0) return null;
-    return { name: name || 'Unnamed', sets: Math.max(0, sets), reps: Math.max(0, reps), weight: Math.max(0, weight) };
+    return {
+      name: name || 'Unnamed',
+      sets: Math.max(0, sets),
+      reps: Math.max(0, reps),
+      weight: Math.max(0, weight)
+    };
   }).filter(Boolean);
 
   if (exercises.length === 0) {
     if (!confirm('You are saving a workout with no exercises — continue?')) return;
   }
 
-  const totalVolume = exercises.reduce((s, e) => s + (e.sets * e.reps * e.weight), 0);
+  const totalVolume = exercises.reduce(
+    (s, e) => s + (e.sets * e.reps * e.weight),
+    0
+  );
   const wilksScore = Math.round(200 + (totalVolume / 50));
 
   const newWorkout = {
@@ -351,9 +364,12 @@ function clearAddFields() {
   });
 }
 
-/* ---------- Utilities ---------- */
+// --- Utilities ---
 function computeTotalVolume(workout) {
-  return workout.exercises.reduce((sum, ex) => sum + (ex.sets * ex.reps * ex.weight), 0);
+  return workout.exercises.reduce(
+    (sum, ex) => sum + (ex.sets * ex.reps * ex.weight),
+    0
+  );
 }
 
 function formatDateLabel(d) {
@@ -364,26 +380,45 @@ function formatDateLabel(d) {
     return d;
   }
 }
+
 function formatDateLong(d) {
   try {
     const dt = new Date(d + 'T00:00:00');
-    return dt.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
-  } catch { return d; }
-}
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]);
+    return dt.toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  } catch {
+    return d;
+  }
 }
 
-/* ---------- Nav click handling ---------- */
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (m) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[m]);
+}
+
+// --- Nav buttons ---
 function initNavButtons() {
   document.querySelectorAll('.navbtn').forEach(link => {
     link.addEventListener('click', () => {
-      link.animate([{opacity:1},{opacity:.6},{opacity:1}], { duration: 300 });
+      link.animate(
+        [{ opacity: 1 }, { opacity: 0.6 }, { opacity: 1 }],
+        { duration: 300 }
+      );
       if (window.innerWidth <= 1000) closeSidebar();
     });
   });
 }
 
-
-/* expose for debugging */
-window.__responsiveApp = { getWorkouts: () => workouts, renderAll };
+// Expose for debugging
+window.__responsiveApp = {
+  getWorkouts: () => workouts,
+  renderAll
+};
