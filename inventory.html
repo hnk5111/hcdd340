@@ -10,20 +10,40 @@
     <title>Inventory</title>
 </head>
 <body>
-    <label for="addInventoryItem">Add Inventory Item Here</label>
-    <input id="addInventoryItemInput">
-    <button onclick="addListItem()">Add Item</button>
+    <div class="layout">
+    <!-- sidebar -->
+        <aside id="sidebar" class="sidebar" aria-label="Primary navigation">
+            <div class="sidebar-inner">
+            <div class="brand">
+                <svg width="140" height="88" viewBox="0 0 175 111" aria-hidden><ellipse cx="87.5" cy="55.5" rx="87.5" ry="55.5" fill="#ff4d4d"/></svg>
+            </div>
 
-    <!-- one idea for the inventory, putting items in a list and then doing some button shit later -->
-    <!-- <ul id="inventoryList"></ul> -->
+            <nav class="navlinks" role="navigation" aria-label="Main navigation">
+                <a href="profile.html" class="navbtn">Profile</a>
+                <a href="inventory.html" class="navbtn">Inventory</a>
+                <a href="resources.html" class="navbtn">Resources</a>
+                <a href="community.html" class="navbtn">Community</a>
+                <a href="coach.html" class="navbtn">Coach</a>
+            </nav>
+            </div>
+        </aside>
+    
+        <div>
+            <label for="addInventoryItem">Add Inventory Item Here</label>
+            <input id="addInventoryItemInput">
+            <button onclick="addListItem()">Add Item</button>
 
-    <!-- current idea is adding checkboxes to a div-->
-    <div id="inventorySection">
-        <ul id="inventoryList"></ul>
+            <!-- one idea for the inventory, putting items in a list and then doing some button shit later -->
+            <!-- <ul id="inventoryList"></ul> -->
+
+            <!-- current idea is adding checkboxes to a div-->
+            <div id="inventorySection">
+                <ul id="inventoryList"></ul>
+            </div>
+
+            <div id="suggestedInventoryItems">
+            </div>
+        </div>
     </div>
-
-    <div id="suggestedInventoryItems">
-    </div>
-
 </body>
 </html>

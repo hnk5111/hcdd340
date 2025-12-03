@@ -1,113 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- website width is now the device width instead of the default -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src = "profile.js"></script>
-    <link rel="stylesheet" href="default.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Profile</title>
+    <!-- <link rel="stylesheet" href="default.css"> -->
     <link rel="stylesheet" href="profile.css">
-    <link rel="stylesheet" href="previousWorkoutsCarousel.css">
+    <script src="script.js" type="module"></script>
 
 </head>
 <body>
     <!-- fix id names holy fuck -->
-    <div id="profilePage">
-        <div id="navBar">
-            
-            <!-- links to the inventory page -->
-            <a href="inventory.html" class="navBarButton">Inventory</a> 
-            <!-- <button onclick="document.location='profile.html'">inventory</button> -->
-            
-            <a href="resources.html" class="navBarButton">Resources</a>
-            <a href="community.html" class="navBarButton">Community</a>
-            <a href="coach.html" class="navBarButton">Coach</a>
+    <div class="layout">
+        <!-- sidebar -->
+        <aside id="sidebar" class="sidebar" aria-label="Primary navigation">
+            <div class="sidebar-inner">
+            <div class="brand">
+                <svg width="140" height="88" viewBox="0 0 175 111" aria-hidden><ellipse cx="87.5" cy="55.5" rx="87.5" ry="55.5" fill="#ff4d4d"/></svg>
+            </div>
 
-            <!-- <button>resources</button>
-            <button>community</button>
-            <button>coach</button> -->
-        </div>
-        <div id="profile">
-            <div id="profileGrid">
-                <img src="https://th.bing.com/th/id/OIP.ZJrWgW4_L78CWjQ-da_vWQHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="empty profile picture icon"></img>
-                <div id="profileText">
-                    <h1>username</h1>
-                    <h1>level <em>fds</em> </h1>
-                    <h1>powerlifter</h1>
-                </div>
+            <nav class="navlinks" role="navigation" aria-label="Main navigation">
+                <a href="profile.html" class="navbtn">Profile</a>
+                <a href="inventory.html" class="navbtn">Inventory</a>
+                <a href="resources.html" class="navbtn">Resources</a>
+                <a href="community.html" class="navbtn">Community</a>
+                <a href="coach.html" class="navbtn">Coach</a>
+            </nav>
             </div>
-            <div id="profileContent">
-                <div id="workoutsection">
-                    <div id="previousWorkout">
-                    <p>Sunday</p>
-                    <p>workout 1</p>
-                    <p>workout 1</p>
-                    <p>workout 1</p>
+        </aside>
+
+        <!-- MAIN -->
+        <main id="app" class="app" role="main">
+            <!-- Profile / Hero -->
+            <section class="profile">
+                <div class="profile-card">
+                    <div class="avatar">
+                        <img src="https://th.bing.com/th/id/OIP.ZJrWgW4_L78CWjQ-da_vWQHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Empty profile picture icon" class="avatar-img">
+                    </div>
+                    <div class="profile-text">
+                        <h1 id="username">User12345</h1>
+                        <p id="userlevel">PoWRlevel 20</p>
                     </div>
                 </div>
-                <div id="graphSection">
-                    <div>
-                        <img src="https://th.bing.com/th/id/OIP.iyQXH04jU9W1wO9eV3Q5UAHaGU?w=195&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Wilkes graph [placeholder]">
+            </section>
+            
+            <!-- DASHBOARD PANELS -->
+            <section class="dashboard" aria-live="polite">
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>Wilks Score Graph</h2>
+                        <button class="info" id="wilksInfo" title="Wilks score measures relative strength adjusted for body weight">i</button>
                     </div>
-                    <div>
-                        <img src="https://th.bing.com/th/id/R.9ae2ad9ae3f7ac41f71654092825933d?rik=oNH2dg5Tz5kyAg&pid=ImgRaw&r=0" alt="all 3 lifts displayed [placeholder]">
+                    <div class="chart-wrap">
+                        <canvas id="wilksChart" aria-label="Wilks score chart" role="img"></canvas>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <div class="panel">
+                    <h2>Total</h2>
+                    <div class="chart-wrap">
+                        <canvas id="totalChart" aria-label="Total stats chart" role="img"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel wide">
+                    <h2>Previous Workouts</h2>
+                    <div id="workoutCards" class="card-container"></div>
+                </div>
+            </section>
+        </main>
     </div>
 
-
-    <div id="prevWorkoutCarousel">
-        <h1>CSS carousel multiple items per page</h1>
-        <ul>
-            <li>
-                <h2>Item 1</h2>
-            </li>
-            <li>
-                <h2>Item 2</h2>
-            </li>
-            <li>
-                <h2>Item 3</h2>
-            </li>
-            <li>
-                <h2>Item 4</h2>
-            </li>
-            <li>
-                <h2>Item 5</h2>
-            </li>
-            <li>
-                <h2>Item 6</h2>
-            </li>
-            <li>
-                <h2>Item 7</h2>
-            </li>
-            <li>
-                <h2>Item 8</h2>
-            </li>
-            <li>
-                <h2>Item 9</h2>
-            </li>
-            <li>
-                <h2>Item 10</h2>
-            </li>
-            <li>
-                <h2>Item 11</h2>
-            </li>
-            <li>
-                <h2>Item 12</h2>
-            </li>
-            <li>
-                <h2>Item 13</h2>
-            </li>
-            <li>
-                <h2>Item 14</h2>
-            </li>
-            <li>
-                <h2>Item 15</h2>
-            </li>
-        </ul>
-
-    </div>
+    <!-- HAMBURGER for mobile -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  
 
 </body>
 
