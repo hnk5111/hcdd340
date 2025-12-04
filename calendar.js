@@ -51,6 +51,8 @@ function renderCalendar(date) {
 
     for (let i = 0; i < firstDayIndex; i++) {
         const emptyCell = document.createElement("div");
+
+
         emptyCell.classList.add("day", "empty");
         calendarGridEl.appendChild(emptyCell);
     }
@@ -62,6 +64,11 @@ function renderCalendar(date) {
         if (isToday(year, monthIndex, day)) {
             cell.classList.add("today");
         }
+
+        //LAWRENCE IS TRYING SOMETHING
+        // cell.setAttribute("id", `cell${day}`)
+        cell.setAttribute("id", formatKey(year, monthIndex, day) + " cell")
+        // 
 
         const numberEl = document.createElement("div");
         numberEl.classList.add("day-number");
@@ -125,3 +132,32 @@ nextMonthBtn.addEventListener("click", () => {
 });
 
 renderCalendar(currentDate);
+
+
+
+
+// Lawrence Autofill stuff
+function defaultCalendarWorkout() {
+    // cell.setAttribute("id", `cell${day}`)
+    // const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+
+    // const key = formatKey(year, monthIndex, day);
+    // const workout = workoutsByDate[key];
+
+
+    // for(let i = 1; i < daysInMonth; i+=2) {
+
+    for(let i = 1; i < 28; i+=2) {
+        let cell = document.getElementById(formatKey(year, monthIndex, day) + " cell")
+        // if(cell.textContent == "") {
+            if(i%4 == 1) {
+                cell.textContent = "squat, bench"
+            }
+            else {
+                cell.textContent = "deadlift"
+            }
+        // }
+    }
+    renderCalendar(currentDate);
+
+}
