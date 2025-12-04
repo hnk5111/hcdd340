@@ -9,7 +9,10 @@ table, td, th {
 
 table {
     background-color: #DDDDDD;
-    border: 1px solid pink
+    border: 1px solid pink;
+
+    margin: 1em;
+    padding:1em
 }
 
 td {
@@ -22,6 +25,12 @@ td {
 }
 
 
+@media (prefers-color-scheme: dark) {
+    table {
+        background-color: #444444;
+        /* border: 1px solid pink */
+    }
+}
 
 #workout_table {
 }

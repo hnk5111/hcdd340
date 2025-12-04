@@ -44,64 +44,71 @@ function defaultWorkoutTable(workoutDay) {
     table.setAttribute("id", workoutDay)
 
 
+    // creates all of the header
     let sets_header = document.createElement("th")
     sets_header.setAttribute("scope", "col")
-    sets_header.innerHTML = "Sets"
+    sets_header.textContent = "Sets"
     let reps_header = document.createElement("th")
     reps_header.setAttribute("scope", "col")
-    reps_header.innerHTML = "Reps"
+    reps_header.textContent = "Reps"
     let RPE_header = document.createElement("th")
     RPE_header.setAttribute("scope", "col")
-    RPE_header.innerHTML = "RPE"   
+    RPE_header.textContent = "RPE"   
+    let video_record_header = document.createElement("th")
+    video_record_header.setAttribute("scope", "col")
+    video_record_header.textContent = "Recording Yourself"   
 
+    // adds all headers to the table
     table.appendChild(sets_header)
     table.appendChild(reps_header)
     table.appendChild(RPE_header)
+    table.appendChild(video_record_header)
 
 
     let workout_data = default_workouts[workoutDay]
     let exercises_list = workout_data.exercises_list
     for(exercise in exercises_list) {
 
+        // creates rows 
         let exercise_tr = document.createElement("tr")
-        let exercise_name_td= document.createElement("td")
 
+        // creates where the name of the exercise
+        let exercise_name_td = document.createElement("td")
+
+        // creates spinner object for tracking the number of reps actually completed
         let reps_spinner = document.createElement("input")
         reps_spinner.setAttribute("type", "number")
         reps_spinner.value = 8
         let reps_spinner_td = document.createElement("td")
+
+        let rpe_td = document.createElement("td")
+        rpe_td.textContent = 8
         
+        let record_button = document.createElement("button")
+        record_button.textContent = "record"
+        // record_button.setAttribute("onclick", "recordingPopup()")
+        record_button.addEventListener("click", () => recordingPopup());
+
+
         exercise_name_td.textContent = exercises_list[exercise]
         
         reps_spinner_td.appendChild(reps_spinner)
 
         exercise_tr.appendChild(exercise_name_td)
         exercise_tr.appendChild(reps_spinner_td)
+        exercise_tr.appendChild(rpe_td)
+        exercise_tr.appendChild(record_button)
+
 
         table.appendChild(exercise_tr)
         console.log(exercises_list[exercise])
     }
 
+    // adds a div to put the table in
     let tables_div = document.getElementById("tables_div")
     tables_div.append(table)
 
-
-
-
     // console.log(default_workouts[workoutDay])
-    
-
-    //     <!-- <table id = "workout_table">
-    //     <th scope="col">exercise</th>
-    //     <th>sets</th>
-    //     <th>reps</th>
-    //     <button onclick="collapse()"></button>
-    //     <tr id="row1">
-    //         <td>thing 1</td>
-    //         <td>thing 1</td>
-    //         <td>thing 1</td>
-    //     </tr>
-    // </table> -->
 }
 
 // createTable()
@@ -119,4 +126,9 @@ function defaultWorkoutTable(workoutDay) {
 function collapse() {
     let tr = document.querySelector("row1")
     tr.classList.toggle("collapse")
+}
+
+function recordingPopup() {
+    // const input = 
+    window.alert("Recording started!")
 }
