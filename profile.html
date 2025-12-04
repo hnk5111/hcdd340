@@ -69,12 +69,67 @@
                 </div>
             </section>
         </main>
-    </div>
+</div>
 
     <!-- HAMBURGER for mobile -->
     <button id="hamburger" class="hamburger" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
         <span></span><span></span><span></span>
     </button>
+
+    <!-- Add Workout Button -->
+  <button id="addWorkoutBtn" class="add-button" aria-label="Add workout">
+    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+  </button>
+
+  <!-- ADD WORKOUT MODAL -->
+  <div id="addWorkoutModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="addWorkoutTitle">
+    <div class="modal-panel">
+      <h3 id="addWorkoutTitle">Add Workout</h3>
+
+      <label class="field">
+        <span>Date</span>
+        <input id="addDate" type="date" />
+      </label>
+
+      <div id="exerciseList" class="exercise-list">
+        <div class="exercise-row">
+          <input placeholder="Exercise name" class="ex-name" />
+          <input type="number" min="0" placeholder="Sets" class="ex-sets" />
+          <input type="number" min="0" placeholder="Reps" class="ex-reps" />
+          <input type="number" min="0" placeholder="Weight (lbs)" class="ex-weight" />
+        </div>
+        <div class="exercise-row">
+          <input placeholder="Exercise name" class="ex-name" />
+          <input type="number" min="0" placeholder="Sets" class="ex-sets" />
+          <input type="number" min="0" placeholder="Reps" class="ex-reps" />
+          <input type="number" min="0" placeholder="Weight (lbs)" class="ex-weight" />
+        </div>
+        <div class="exercise-row">
+          <input placeholder="Exercise name" class="ex-name" />
+          <input type="number" min="0" placeholder="Sets" class="ex-sets" />
+          <input type="number" min="0" placeholder="Reps" class="ex-reps" />
+          <input type="number" min="0" placeholder="Weight (lbs)" class="ex-weight" />
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="saveWorkout" class="btn primary">Save</button>
+        <button id="cancelAdd" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILS MODAL -->
+  <div id="detailsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
+    <div class="modal-panel" id="detailsPanel">
+      <h3 id="detailsTitle">Workout Details</h3>
+      <div id="detailsBody"></div>
+      <div class="modal-actions">
+        <button id="closeDetails" class="btn">Close</button>
+      </div>
+    </div>
+  </div>
+
   
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
     <script src="./profile.js"></script>
