@@ -1,85 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendar</title>
 
-    <!-- SAME CSS AS ALL OTHER PAGES -->
-    <link rel="stylesheet" href="default.css">
-    <link rel="stylesheet" href="profile.css">
-    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="default.css" />
+    <link rel="stylesheet" href="calendar.css" />
 
-    <link rel="manifest" href="pwa-manifest.json">
+    <script src="calendar.js" defer></script>
 </head>
 
 <body>
 
-<!-- HAMBURGER MENU (MATCHING YOUR OTHER PAGES) -->
-<button id="menu-toggle">☰</button>
+<div class="layout">
 
-<!-- SIDEBAR (COPIED FROM YOUR WORKING PAGE) -->
-<div id="sidebar">
-    <img src="icons/logo.png" id="sidebar-logo" alt="POWR Logo">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-    <a href="profile.html" class="navBarButton">Profile</a>
-    <a href="workout.html" class="navBarButton">Workout</a>
-    <a href="Calendar.html" class="navBarButton" style="color:#ff4444;">Calendar</a>
-    <a href="inventory.html" class="navBarButton">Inventory</a>
-    <a href="resources.html" class="navBarButton">Resources</a>
-    <a href="community.html" class="navBarButton">Community</a>
-    <a href="coach.html" class="navBarButton">Coach</a>
-</div>
+        <div class="brand">
+            <img src="icons/logo.png" alt="POWR Logo" width="140" />
+        </div>
 
-<!-- MAIN CONTENT WRAPPER -->
-<div id="content">
+        <nav class="navlinks">
+            <a href="profile.html" class="navbtn">Profile</a>
+            <a href="workout.html" class="navbtn">Workout</a>
+            <a href="Calendar.html" class="navbtn" style="opacity:0.7;">Calendar</a>
+            <a href="inventory.html" class="navbtn">Inventory</a>
+            <a href="resources.html" class="navbtn">Resources</a>
+            <a href="community.html" class="navbtn">Community</a>
+            <a href="coach.html" class="navbtn">Coach</a>
+        </nav>
 
-    <main class="calendar-page">
-        <section class="calendar-container">
+    </aside>
 
-            <header class="calendar-header">
-                <button id="prevMonth" type="button">‹</button>
-                <h2 id="monthYear"></h2>
-                <button id="nextMonth" type="button">›</button>
-            </header>
+    <!-- MAIN APP CONTENT -->
+    <main class="app">
 
-            <!-- WEEKDAY HEADERS -->
-            <div class="weekday-row">
-                <span>Sun</span>
-                <span>Mon</span>
-                <span>Tue</span>
-                <span>Wed</span>
-                <span>Thu</span>
-                <span>Fri</span>
-                <span>Sat</span>
-            </div>
+        <div class="calendar-page">
 
-            <!-- CALENDAR DAYS (injected by JS) -->
-            <div class="calendar-grid" id="calendarGrid"></div>
+            <section class="calendar-container">
 
-        </section>
+                <header class="calendar-header">
+                    <button id="prevMonth" type="button">‹</button>
+                    <h2 id="monthYear"></h2>
+                    <button id="nextMonth" type="button">›</button>
+                </header>
+
+                <div class="weekday-row">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                </div>
+
+                <div id="calendarGrid" class="calendar-grid"></div>
+
+            </section>
+
+        </div>
+
     </main>
 
 </div>
-
-<!-- JAVASCRIPT -->
-<script src="calendar.js"></script>
-
-<!-- OPTIONAL: If your sidebar toggle code is inside profile.js, load it -->
-<script src="profile.js"></script>
-
-<script>
-    // If your other pages use a toggle script, this ensures Calendar works too.
-    const menu = document.getElementById("sidebar");
-    const toggle = document.getElementById("menu-toggle");
-
-    if (toggle) {
-        toggle.addEventListener("click", () => {
-            menu.classList.toggle("open");
-        });
-    }
-</script>
 
 </body>
 </html>
