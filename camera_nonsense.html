@@ -6,6 +6,7 @@
     <title>Workout Calendar</title>
     <link rel="stylesheet" href="calendar.css" />
     <link rel="manifest" href="pwa-manifest.json" />
+    <script src = "camera_nonsense.js"></script>
 </head>
     <body>
 <!-- 
@@ -19,10 +20,14 @@
             <img id="photo" src="" alt="The screen capture will appear in this box." />
         </div> -->
 
-        <div class = "camera">
-            <button onclick="getMedia()"></button>
 
+        <div>
+            <video id="vid"></video>
         </div>
+        <br />
+        <button id="but" autoplay>
+            Open WebCam
+        </button>
         
     </body>
 
