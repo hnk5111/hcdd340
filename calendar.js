@@ -49,14 +49,14 @@ function renderCalendar(date) {
         m === today.getMonth() &&
         d === today.getDate();
 
+    // Insert blank cells before the 1st of the month
     for (let i = 0; i < firstDayIndex; i++) {
         const emptyCell = document.createElement("div");
-
-
         emptyCell.classList.add("day", "empty");
         calendarGridEl.appendChild(emptyCell);
     }
 
+    // Create day cells
     for (let day = 1; day <= daysInMonth; day++) {
         const cell = document.createElement("div");
         cell.classList.add("day");
@@ -65,26 +65,27 @@ function renderCalendar(date) {
             cell.classList.add("today");
         }
 
-        //LAWRENCE IS TRYING SOMETHING
-        // cell.setAttribute("id", `cell${day}`)
-        cell.setAttribute("id", formatKey(year, monthIndex, day) + " cell")
-        // 
+        // ID for autofill function
+        cell.setAttribute("id", formatKey(year, monthIndex, day) + " cell");
 
+        // Day number
         const numberEl = document.createElement("div");
         numberEl.classList.add("day-number");
         numberEl.textContent = day;
         cell.appendChild(numberEl);
 
+        // Previously stored workout
         const key = formatKey(year, monthIndex, day);
         const workout = workoutsByDate[key];
 
         if (workout) {
             const workoutEl = document.createElement("div");
             workoutEl.classList.add("day-workout");
-            workoutEl.textContent = workout; // e.g., "Squat", "Bench", "Rest"
+            workoutEl.textContent = workout;
             cell.appendChild(workoutEl);
         }
 
+        // Click handler
         cell.addEventListener("click", () => handleDayClick(year, monthIndex, day));
 
         calendarGridEl.appendChild(cell);
@@ -103,17 +104,13 @@ function handleDayClick(year, monthIndex, day) {
         existingValue
     );
 
-    if (input === null) {
-        return;
-    }
+    if (input === null) return;
 
     const trimmed = input.trim();
 
     if (trimmed === "") {
-        // clear entry for that day
         delete workoutsByDate[key];
     } else {
-        // save/update entry
         workoutsByDate[key] = trimmed;
     }
 
@@ -121,6 +118,7 @@ function handleDayClick(year, monthIndex, day) {
     renderCalendar(currentDate);
 }
 
+// Month navigation
 prevMonthBtn.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
     renderCalendar(currentDate);
@@ -131,33 +129,33 @@ nextMonthBtn.addEventListener("click", () => {
     renderCalendar(currentDate);
 });
 
+// Draw initial calendar
 renderCalendar(currentDate);
 
 
+//
+// -------------------------------
+// FIXED AUTOFILL FUNCTION (Working)
+// -------------------------------
+//
 
-
-// Lawrence Autofill stuff
 function defaultCalendarWorkout() {
-    // cell.setAttribute("id", `cell${day}`)
-    // const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+    const year = currentDate.getFullYear();
+    const monthIndex = currentDate.getMonth();
+    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
 
-    // const key = formatKey(year, monthIndex, day);
-    // const workout = workoutsByDate[key];
+    for (let day = 1; day <= daysInMonth; day++) {
+        const key = formatKey(year, monthIndex, day);
+        const cell = document.getElementById(key + " cell");
 
+        if (!cell) continue; // skip if cell doesn't exist
 
-    // for(let i = 1; i < daysInMonth; i+=2) {
-
-    for(let i = 1; i < 28; i+=2) {
-        let cell = document.getElementById(formatKey(year, monthIndex, day) + " cell")
-        // if(cell.textContent == "") {
-            if(i%4 == 1) {
-                cell.textContent = "squat, bench"
-            }
-            else {
-                cell.textContent = "deadlift"
-            }
-        // }
+        if (day % 4 === 1) {
+            cell.textContent = "squat, bench";
+        } else {
+            cell.textContent = "deadlift";
+        }
     }
-    renderCalendar(currentDate);
 
+    renderCalendar(currentDate);
 }

@@ -3,38 +3,69 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workout Calendar</title>
+    <title>Calendar</title>
+
+    <link rel="stylesheet" href="default.css" />
     <link rel="stylesheet" href="calendar.css" />
-    <link rel="manifest" href="pwa-manifest.json" />
+
+    <script src="calendar.js" defer></script>
 </head>
+
 <body>
-<main class="calendar-page">
-    <section class="calendar-container">
-        <header class="calendar-header">
-            <button id="prevMonth" type="button">‹</button>
-            <h2 id="monthYear"></h2>
-            <button id="nextMonth" type="button">›</button>
-        </header>
 
-        <div class="weekday-row">
-            <span>Sun</span>
-            <span>Mon</span>
-            <span>Tue</span>
-            <span>Wed</span>
-            <span>Thu</span>
-            <span>Fri</span>
-            <span>Sat</span>
-        </div>
-        <div class="weekday-row">
-            <!-- <button onclick="defaultCalendarWorkout()">Autofill Calendar</button> -->
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="icons/logo.png" alt="POWR Logo" width="140" />
         </div>
 
-        <div class="calendar-grid" id="calendarGrid">
-            <!-- Days will be inserted with JavaScript -->
-        </div>
-    </section>
-</main>
+        <nav class="navlinks">
+            <a href="profile.html" class="navbtn">Profile</a>
+            <a href="workout.html" class="navbtn">Workout</a>
+            <a href="Calendar.html" class="navbtn" style="opacity:0.7;">Calendar</a>
+            <a href="inventory.html" class="navbtn">Inventory</a>
+            <a href="resources.html" class="navbtn">Resources</a>
+            <a href="community.html" class="navbtn">Community</a>
+            <a href="coach.html" class="navbtn">Coach</a>
+        </nav>
 
-<script src="calendar.js"></script>
+    </aside>
+
+    <!-- MAIN APP CONTENT -->
+    <main class="app">
+
+        <div class="calendar-page">
+
+            <section class="calendar-container">
+
+                <header class="calendar-header">
+                    <button id="prevMonth" type="button">‹</button>
+                    <h2 id="monthYear"></h2>
+                    <button id="nextMonth" type="button">›</button>
+                </header>
+
+                <div class="weekday-row">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                </div>
+
+                <div id="calendarGrid" class="calendar-grid"></div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
 </body>
 </html>

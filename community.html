@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Profile</title>
+    <link rel="manifest" href="pwa-manifest.json" />
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="default.css">
+
+</head>
+<body>
+    <div class="layout">
+        <!-- sidebar -->
+        <aside id="sidebar" class="sidebar" aria-label="Primary navigation">
+            <div class="sidebar-inner">
+            <div class="brand">
+                <img width="250" viewBox="0 0 175 111" src="my-icons/powrlogo.png">
+            </div>
+
+            <nav class="navlinks" role="navigation" aria-label="Main navigation">
+                <a href="profile.html" class="navbtn">Profile</a>
+                <a href="workout.html" class="navbtn">Workout</a>
+                <a href="inventory.html" class="navbtn">Inventory</a>
+                <a href="resources.html" class="navbtn">Resources</a>
+                <a href="community.html" class="navbtn">Community</a>
+                <a href="coach.html" class="navbtn">Coach</a>
+            </nav>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main id="app" class="app" role="main">
+            <!-- Profile / Hero -->
+            <section class="profile">
+                <div class="profile-card">
+                    <div class="avatar">
+                        <img src="my-icons/profileimg.jpg" alt="Empty profile picture icon" class="avatar-img">
+                    </div>
+                    <div class="profile-text">
+                        <h1 id="username">User12345</h1>
+                        <p id="userlevel">PoWRlevel 20</p>
+                    </div>
+                </div>
+            </section>
+            <div class="panel wide">
+                <h2>User123223</h2>
+                <div>
+                    <p>This is a post from a User</p>
+                </div>
+            </div>
+            <div class="panel wide">
+                <div class="avatar">
+                    <img src="my-icons/profileimg.jpg" alt="Empty profile picture icon" class="avatar-img">
+                </div>
+                <h2>User123223</h2>
+                <div>
+                    <p>This is a post from a User</p>
+                </div>
+            </div>
+        </main>
+</div>
+
+    <!-- HAMBURGER for mobile -->
+    <button id="hamburger" class="hamburger" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</body>
+
+</html>
