@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let but = document.getElementById("but");
     let video = document.getElementById("vid");
     let mediaDevices = navigator.mediaDevices;
-    vid.muted = true;
+    // video.muted = true;
     but.addEventListener("click", () => {
 
         // Accessing the user camera and video.
