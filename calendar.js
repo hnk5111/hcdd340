@@ -1,19 +1,11 @@
-const STORAGE_KEY = "powr_calendar"; // localStorage key
-
-const monthYearEl = document.getElementById("monthYear");
-const calendarGridEl = document.getElementById("calendarGrid");
-const prevMonthBtn = document.getElementById("prevMonth");
-const nextMonthBtn = document.getElementById("nextMonth");
-
-let currentDate = new Date(); // month being viewed
-let workoutsByDate = loadWorkouts();
+// LOCAL STORAGE
+const STORAGE_KEY = "powr_calendar";
 
 function loadWorkouts() {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         return raw ? JSON.parse(raw) : {};
-    } catch (e) {
-        console.error("Error loading workouts from localStorage", e);
+    } catch {
         return {};
     }
 }
@@ -23,139 +15,102 @@ function saveWorkouts() {
 }
 
 function formatKey(year, monthIndex, day) {
-    const m = (monthIndex + 1).toString().padStart(2, "0");
-    const d = day.toString().padStart(2, "0");
-    return `${year}-${m}-${d}`;
+    return `${year}-${String(monthIndex+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
 }
+
+let currentDate = new Date();
+let workoutsByDate = loadWorkouts();
+
+const monthYearEl = document.getElementById("monthYear");
+const calendarGridEl = document.getElementById("calendarGrid");
 
 function renderCalendar(date) {
     calendarGridEl.innerHTML = "";
 
-    const year = date.getFullYear();
-    const monthIndex = date.getMonth(); // 0-11
+    const y = date.getFullYear();
+    const m = date.getMonth();
 
     const monthNames = [
         "January","February","March","April","May","June",
         "July","August","September","October","November","December"
     ];
-    monthYearEl.textContent = `${monthNames[monthIndex]} ${year}`;
 
-    const firstDayIndex = new Date(year, monthIndex, 1).getDay();
-    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+    monthYearEl.textContent = `${monthNames[m]} ${y}`;
 
-    const today = new Date();
-    const isToday = (y, m, d) =>
-        y === today.getFullYear() &&
-        m === today.getMonth() &&
-        d === today.getDate();
+    const firstDay = new Date(y, m, 1).getDay();
+    const daysInMonth = new Date(y, m+1, 0).getDate();
 
-    // Insert blank cells before the 1st of the month
-    for (let i = 0; i < firstDayIndex; i++) {
-        const emptyCell = document.createElement("div");
-        emptyCell.classList.add("day", "empty");
-        calendarGridEl.appendChild(emptyCell);
+    // empty squares
+    for (let i = 0; i < firstDay; i++) {
+        let cell = document.createElement("div");
+        cell.classList.add("day", "empty");
+        calendarGridEl.appendChild(cell);
     }
 
-    // Create day cells
+    // days
     for (let day = 1; day <= daysInMonth; day++) {
-        const cell = document.createElement("div");
+        let cell = document.createElement("div");
         cell.classList.add("day");
 
-        if (isToday(year, monthIndex, day)) {
-            cell.classList.add("today");
+        let num = document.createElement("div");
+        num.classList.add("day-number");
+        num.textContent = day;
+        cell.appendChild(num);
+
+        let key = formatKey(y, m, day);
+        if (workoutsByDate[key]) {
+            let w = document.createElement("div");
+            w.classList.add("day-workout");
+            w.textContent = workoutsByDate[key];
+            cell.appendChild(w);
         }
 
-        // ID for autofill function
-        cell.setAttribute("id", formatKey(year, monthIndex, day) + " cell");
-
-        // Day number
-        const numberEl = document.createElement("div");
-        numberEl.classList.add("day-number");
-        numberEl.textContent = day;
-        cell.appendChild(numberEl);
-
-        // Previously stored workout
-        const key = formatKey(year, monthIndex, day);
-        const workout = workoutsByDate[key];
-
-        if (workout) {
-            const workoutEl = document.createElement("div");
-            workoutEl.classList.add("day-workout");
-            workoutEl.textContent = workout;
-            cell.appendChild(workoutEl);
-        }
-
-        // Click handler
-        cell.addEventListener("click", () => handleDayClick(year, monthIndex, day));
-
+        cell.addEventListener("click", () => handleDayClick(y, m, day));
         calendarGridEl.appendChild(cell);
     }
 }
 
-function handleDayClick(year, monthIndex, day) {
-    const key = formatKey(year, monthIndex, day);
-    const existingValue = workoutsByDate[key] || "";
+function handleDayClick(y, m, d) {
+    const key = formatKey(y, m, d);
+    const current = workoutsByDate[key] || "";
 
-    const labelDate = `${monthIndex + 1}/${day}/${year}`;
-    const input = prompt(
-        `What are you doing on ${labelDate}?\n` +
-        `Enter a workout (e.g., "Squat", "Bench", "Rest").\n` +
-        `Leave empty and press OK to clear.`,
-        existingValue
-    );
-
+    const input = prompt(`Workout for ${m+1}/${d}/${y}:`, current);
     if (input === null) return;
 
-    const trimmed = input.trim();
+    const t = input.trim();
 
-    if (trimmed === "") {
+    if (t === "") {
         delete workoutsByDate[key];
     } else {
-        workoutsByDate[key] = trimmed;
+        workoutsByDate[key] = t;
     }
 
     saveWorkouts();
     renderCalendar(currentDate);
 }
 
-// Month navigation
-prevMonthBtn.addEventListener("click", () => {
+// Month buttons
+document.getElementById("prevMonth").addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
     renderCalendar(currentDate);
 });
-
-nextMonthBtn.addEventListener("click", () => {
+document.getElementById("nextMonth").addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar(currentDate);
 });
 
-// Draw initial calendar
+// INITIAL RENDER
 renderCalendar(currentDate);
 
+// SIDEBAR (FROM PROFILE)
+const sidebar = document.getElementById("sidebar");
+const hamburger = document.getElementById("hamburger");
 
-//
-// -------------------------------
-// FIXED AUTOFILL FUNCTION (Working)
-// -------------------------------
-//
+hamburger.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+});
 
-function defaultCalendarWorkout() {
-    const year = currentDate.getFullYear();
-    const monthIndex = currentDate.getMonth();
-    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
-
-    for (let day = 1; day <= daysInMonth; day++) {
-        const key = formatKey(year, monthIndex, day);
-        const cell = document.getElementById(key + " cell");
-
-        if (!cell) continue; // skip if cell doesn't exist
-
-        if (day % 4 === 1) {
-            cell.textContent = "squat, bench";
-        } else {
-            cell.textContent = "deadlift";
-        }
-    }
-
-    renderCalendar(currentDate);
-}
+// FAB BUTTON
+document.getElementById("fab-add").addEventListener("click", () => {
+    window.location.href = "workout.html";
+});

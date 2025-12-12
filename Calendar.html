@@ -16,29 +16,28 @@
 <div class="layout">
 
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside id="sidebar" class="sidebar" aria-label="Primary navigation">
+        <div class="sidebar-inner">
+            <div class="brand">
+                <img width="250" src="my-icons/powrlogo.png" alt="POWR Logo">
+            </div>
 
-        <div class="brand">
-            <img src="icons/logo.png" alt="POWR Logo" width="140" />
+            <nav class="navlinks">
+                <a href="profile.html" class="navbtn">Profile</a>
+                <a href="workout.html" class="navbtn">Workout</a>
+                <a href="Calendar.html" class="navbtn" style="opacity:0.7;">Calendar</a>
+                <a href="inventory.html" class="navbtn">Inventory</a>
+                <a href="resources.html" class="navbtn">Resources</a>
+                <a href="community.html" class="navbtn">Community</a>
+                <a href="coach.html" class="navbtn">Coach</a>
+            </nav>
         </div>
-
-        <nav class="navlinks">
-            <a href="profile.html" class="navbtn">Profile</a>
-            <a href="workout.html" class="navbtn">Workout</a>
-            <a href="Calendar.html" class="navbtn" style="opacity:0.7;">Calendar</a>
-            <a href="inventory.html" class="navbtn">Inventory</a>
-            <a href="resources.html" class="navbtn">Resources</a>
-            <a href="community.html" class="navbtn">Community</a>
-            <a href="coach.html" class="navbtn">Coach</a>
-        </nav>
-
     </aside>
 
-    <!-- MAIN APP CONTENT -->
-    <main class="app">
+    <!-- MAIN CONTENT -->
+    <main class="app" role="main">
 
         <div class="calendar-page">
-
             <section class="calendar-container">
 
                 <header class="calendar-header">
@@ -60,12 +59,19 @@
                 <div id="calendarGrid" class="calendar-grid"></div>
 
             </section>
-
         </div>
+
+        <!-- FLOATING + BUTTON -->
+        <button id="fab-add" class="fab">+</button>
 
     </main>
 
 </div>
+
+<!-- HAMBURGER MENU -->
+<button id="hamburger" class="hamburger">
+    <span></span><span></span><span></span>
+</button>
 
 </body>
 </html>

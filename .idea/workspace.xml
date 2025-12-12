@@ -7,6 +7,8 @@
     <list default="true" id="684db174-b661-4983-a3d0-2f2247aa1341" name="Changes" comment="added calendar to page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calendar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +77,7 @@
       <workItem from="1764699046651" duration="5556000" />
       <workItem from="1765489708603" duration="30000" />
       <workItem from="1765489744812" duration="317000" />
-      <workItem from="1765490402410" duration="4423000" />
+      <workItem from="1765490402410" duration="5912000" />
     </task>
     <task id="LOCAL-00001" summary="HTML for calendar, and other file creation">
       <option name="closed" value="true" />
@@ -109,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765492509101</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added calendar to page">
+      <option name="closed" value="true" />
+      <created>1765495378229</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765495378229</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
