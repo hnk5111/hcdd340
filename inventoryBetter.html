@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="default.css">
 
-    <script src = "inventory.js"></script>
+    <link rel="stylesheet" href="inventoryBetter.css">
+
+    <script defer src = "inventoryBetter.js"></script>
     <!-- <script defer src = "inventory.js"></script> -->
 
     <link rel="manifest" href="pwa-manifest.json" />
@@ -36,21 +38,9 @@
             </nav>
             </div>
         </aside>
-        <div>
-            <label for="addInventoryItem">Add Inventory Item Here</label>
-            <input id="addInventoryItemInput">
-            <button onclick="addListItem()">Add Item</button>
-
-            <!-- one idea for the inventory, putting items in a list and then doing some button shit later -->
-            <!-- <ul id="inventoryList"></ul> -->
-
-            <!-- current idea is adding checkboxes to a div-->
-            <div id="inventorySection">
-                <ul id="inventoryList"></ul>
-            </div>
-
-            <div id="suggestedInventoryItems">
-            </div>
+        <h1> Inventory </h1>
+        <div id="inventory-div">
+            <button id="add-item-button" class="inventory-card" onclick="addItem()">+</button>
         </div>
     </div>
 </body>

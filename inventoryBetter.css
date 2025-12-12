@@ -1,0 +1,60 @@
+* {
+    font-size: 16px;
+    /* flex-direction: column; */
+}
+
+#inventory-div {
+    width: 90vw;
+    /* height: auto; */
+    border: 1em solid green;
+    margin: 1em;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .inventory-card {
+        display: grid;
+        justify-content: center;
+        margin: 1em;
+        padding: 1em;
+        height: 15em;
+        width: 10em;
+        background-color: #999999;
+        
+        img {
+            width: auto;
+            height: 8em;
+            background-color: white; 
+        }
+    }
+
+    .inventory-card:hover {
+        /* * { */
+            margin: 1.5em;
+        /* } */
+    }
+
+    #add-item-button {
+    /* position: fixed; */
+    /* top: 1em;
+    left: 2em; */
+    /* height: 2em;
+    width: 2em; */
+
+    font-weight: bold;
+    color: white;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+}
+
+
+
+
+
