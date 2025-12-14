@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="684db174-b661-4983-a3d0-2f2247aa1341" name="Changes" comment="Navbar integration, Move the workout creation module (+) from profile to Calendar, CSS + javascript copy and paste from profile to calendar, add and remove from there">
+    <list default="true" id="684db174-b661-4983-a3d0-2f2247aa1341" name="Changes" comment="Final Working Calendar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/Calendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,29 +33,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.Calendar.html.executor": "Run",
-    "JavaScript Debug.inventory.html.executor": "Run",
-    "JavaScript Debug.navbar.html.executor": "Run",
-    "JavaScript Debug.profile.html.executor": "Run",
-    "JavaScript Debug.smartwatch.html.executor": "Run",
-    "JavaScript Debug.workout.html.executor": "Run",
-    "Node.js.profile.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/nhink/WebstormProjects/hcdd340",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.Calendar.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.inventory.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.navbar.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.profile.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.smartwatch.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.workout.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.profile.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nhink/WebstormProjects/hcdd340&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="profile.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/profile.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
@@ -89,7 +87,7 @@
       <workItem from="1765489708603" duration="30000" />
       <workItem from="1765489744812" duration="317000" />
       <workItem from="1765490402410" duration="6179000" />
-      <workItem from="1765739076462" duration="4479000" />
+      <workItem from="1765739076462" duration="5564000" />
     </task>
     <task id="LOCAL-00001" summary="HTML for calendar, and other file creation">
       <option name="closed" value="true" />
@@ -139,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765498024944</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Final Working Calendar">
+      <option name="closed" value="true" />
+      <created>1765744386810</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765744386810</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +167,7 @@
     <MESSAGE value="base CSS and Javascript code for calendar" />
     <MESSAGE value="added calendar to page" />
     <MESSAGE value="Navbar integration, Move the workout creation module (+) from profile to Calendar, CSS + javascript copy and paste from profile to calendar, add and remove from there" />
-    <option name="LAST_COMMIT_MESSAGE" value="Navbar integration, Move the workout creation module (+) from profile to Calendar, CSS + javascript copy and paste from profile to calendar, add and remove from there" />
+    <MESSAGE value="Final Working Calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Working Calendar" />
   </component>
 </project>
