@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Profile</title>
+    <title>PowR Community</title>
     <link rel="manifest" href="pwa-manifest.json" />
-    <link rel="stylesheet" href="profile.css">
-    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="community.css">
 
 </head>
 <body>
+    <button id="hamburger" class="hamburger" type="button" aria-label="Open menu">☰</button>
     <div class="layout">
         <!-- sidebar -->
         <aside id="sidebar" class="sidebar" aria-label="Primary navigation">
@@ -21,6 +21,7 @@
             <nav class="navlinks" role="navigation" aria-label="Main navigation">
                 <a href="profile.html" class="navbtn">Profile</a>
                 <a href="workout.html" class="navbtn">Workout</a>
+                <a href="calendar.html" class="navbtn">Calendar</a>
                 <a href="inventory.html" class="navbtn">Inventory</a>
                 <a href="resources.html" class="navbtn">Resources</a>
                 <a href="community.html" class="navbtn">Community</a>
@@ -29,42 +30,134 @@
             </div>
         </aside>
 
-        <!-- MAIN -->
-        <main id="app" class="app" role="main">
-            <!-- Profile / Hero -->
-            <section class="profile">
-                <div class="profile-card">
-                    <div class="avatar">
-                        <img src="my-icons/profileimg.jpg" alt="Empty profile picture icon" class="avatar-img">
-                    </div>
-                    <div class="profile-text">
-                        <h1 id="username">User12345</h1>
-                        <p id="userlevel">PoWRlevel 20</p>
-                    </div>
-                </div>
-            </section>
-            <div class="panel wide">
-                <h2>User123223</h2>
-                <div>
-                    <p>This is a post from a User</p>
-                </div>
-            </div>
-            <div class="panel wide">
-                <div class="avatar">
-                    <img src="my-icons/profileimg.jpg" alt="Empty profile picture icon" class="avatar-img">
-                </div>
-                <h2>User123223</h2>
-                <div>
-                    <p>This is a post from a User</p>
-                </div>
-            </div>
-        </main>
-</div>
+    <!-- MAIN -->
+    <main class="community-page">
+        <header class="community-header">
+        <h1>Community Board</h1>
+        <button class="primary-btn header-new-post" id="openNewPost"><span class="plus">+</span> New Post</button>
+        </header>
 
-    <!-- HAMBURGER for mobile -->
-    <button id="hamburger" class="hamburger" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
+        <!-- Topic filter pills -->
+        <section class="topic-filter">
+        <button class="topic-pill active">All</button>
+        <button class="topic-pill">Help</button>
+        <button class="topic-pill">PR</button>
+        <button class="topic-pill">Gear</button>
+        <button class="topic-pill">Nutrition</button>
+        <button class="topic-pill">General</button>
+        </section>
+
+        <!-- Feed -->
+        <section class="feed" id="feed">
+        <!-- dummy posts -->
+        <article class="post-card" data-topic="PR">
+            <div class="post-main-row">
+                <div class="post-left">
+                <div class="avatar circle">S</div>
+                </div>
+
+                <div class="post-center">
+                <div class="post-top-meta">
+                    <span class="post-name">Sarah Mitchell</span>
+                    <span class="dot">·</span>
+                    <span class="post-time">2h ago</span>
+                </div>
+
+                <div class="post-location-row">
+                    <input type="hidden" id="locationValue" />
+                    <span class="post-location-icon">📍</span>
+                    <span class="post-location-text">Brooklyn, NY</span>
+                </div>
+
+                <p class="post-content">
+                    Just hit a new deadlift PR! 285lbs for 3 reps. Been working on form for months and it finally paid off. Anyone else crushing their goals this week? 💪
+                </p>
+                </div>
+
+                <div class="post-right">
+                    <span class="topic-pill small">PR</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="post-card" data-topic="PR">
+            <div class="post-main-row">
+                <div class="post-left">
+                <div class="avatar circle">B</div>
+                </div>
+
+                <div class="post-center">
+                <div class="post-top-meta">
+                    <span class="post-name">Boogie2194</span>
+                    <span class="dot">·</span>
+                    <span class="post-time">5h ago</span>
+                </div>
+
+                <div class="post-location-row">
+                    <input type="hidden" id="locationValue" />
+                    <span class="post-location-icon">📍</span>
+                    <span class="post-location-text">Philadelphia, PA</span>
+                </div>
+
+                <p class="post-content">
+                    Looking for recommendations on lifting belts. Currently using a cheap one from Amazon but ready to invest in quality. What are you all using?
+                </div>
+
+                <div class="post-right">
+                    <span class="topic-pill small">Gear</span>
+                </div>
+            </div>
+        </article>
+        </section>
+    </main>
+
+    <!-- New Post Modal -->
+    <div class="modal-backdrop" id="newPostModal" aria-hidden="true">
+        <div class="modal">
+        <div class="modal-header">
+            <h2>New Post</h2>
+            <button class="icon-btn" id="closeModal" aria-label="Close">×</button>
+        </div>
+
+        <form id="newPostForm" class="modal-body">
+            <div class="profile-row">
+            <div class="avatar circle">U</div>
+            <div>
+                <h3>User12345</h3>
+                <p class="muted small">PowRlevel 20</p>
+            </div>
+            </div>
+
+            <!-- Topic buttons will be injected here -->
+            <div class="field">
+            <label class="muted small">Topic</label>
+            <div id="topicList" class="topic-list"></div>
+            <input type="hidden" id="selectedTopic" value="General" />
+            </div>
+
+            <div class="field">
+            <textarea
+                id="postContent"
+                class="textarea"
+                placeholder="What's on your mind?"
+            ></textarea>
+            </div>
+
+            <div class="modal-actions">
+            <button type="button" class="secondary-btn" id="cancelPost">
+                Cancel
+            </button>
+            <button type="submit" class="primary-btn" id="submitPost" disabled>
+                Post
+            </button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <script src="community.js"></script>
+
+
 </body>
 
 </html>
