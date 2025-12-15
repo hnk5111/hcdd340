@@ -6,7 +6,7 @@
     <title>Camera Testing</title>
     <!-- <link rel="stylesheet" href="default.css" /> -->
     <link rel="manifest" href="pwa-manifest.json" />
-    <script src = "camera_nonsense.js"></script>
+    <script defer src = "camera_nonsense.js"></script>
 </head>
     <body>
         <!-- 
@@ -22,15 +22,17 @@
 
     <!-- source: https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos -->
         <div class="camera">
-            <video id="video">Video stream not available</video>
+            <video id="video" autoplay muted playsinline>Video stream not available.</video>
             <button id = "start-button">Capture photo</button>
+            <button id = "permissions-button"> Allow Camera</button>
         </div>
 
         <!-- canvas is an element to dynamically draw with JS  -->
         <canvas id="canvas"></canvas>
         <div class="output">
-            <img id="photo" src="" alt="The screen capture will appear in this box." />        </div>
+            <!-- <img id="photo" src="" alt="The screen capture will appear in this box." /> -->
         </div>
+        <div id = "profilePictureDiv"></div>
     </body>
 
 </html>
