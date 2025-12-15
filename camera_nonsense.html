@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workout Calendar</title>
-    <link rel="stylesheet" href="calendar.css" />
+    <title>Camera Testing</title>
+    <!-- <link rel="stylesheet" href="default.css" /> -->
     <link rel="manifest" href="pwa-manifest.json" />
     <script src = "camera_nonsense.js"></script>
 </head>
     <body>
-
+        <!-- 
         <div>
             <video id="vid"></video>
         </div>
         <br />
 
-        <!-- autoplay means video automatically starts playing -->
+        autoplay means video automatically starts playing
         <button id="but" autoplay>
             Open WebCam
-        </button>
-        
+        </button> -->
 
+    <!-- source: https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos -->
+        <div class="camera">
+            <video id="video">Video stream not available</video>
+            <button id = "start-button">Capture photo</button>
+        </div>
+
+        <!-- canvas is an element to dynamically draw with JS  -->
+        <canvas id="canvas"></canvas>
+        <div class="output">
+            <img id="photo" src="" alt="The screen capture will appear in this box." />        </div>
+        </div>
     </body>
 
 </html>

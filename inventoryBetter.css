@@ -3,10 +3,25 @@
     /* flex-direction: column; */
 }
 
+h1 {
+    font-size: 4em;
+}
+
+#inventoryPage {
+    /* * { */
+        display: grid;
+        justify-items: center;
+        /* grid-column: auto; */
+        /* justify-content: center; */
+        margin-left: auto;
+        margin-right: auto;
+    /* } */
+}
+
 #inventory-div {
     width: 90vw;
     /* height: auto; */
-    border: 1em solid green;
+    /* border: 1em solid green; */
     margin: 1em;
     justify-content: center;
     display: flex;
@@ -33,14 +48,17 @@
         /* * { */
             margin: 1.5em;
         /* } */
+        /* makes card lighter when hovered */
+        filter: brightness(130%)
+        /* background-color: lighten(); */
     }
 
     #add-item-button {
     /* position: fixed; */
-    /* top: 1em;
-    left: 2em; */
-    /* height: 2em;
-    width: 2em; */
+    /* top: 1em; */
+    /* left: 2em; */
+    height: 10rem;
+    width: 10rem;
 
     font-weight: bold;
     color: white;
@@ -50,6 +68,10 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    h1 {
+        font-size: 10em;
+    }
 }
 
 }

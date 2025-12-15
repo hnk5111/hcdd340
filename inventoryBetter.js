@@ -78,5 +78,5 @@ function createCard(itemJSON) {
 
 
 function addItem() {
-    
+    window.prompt("Question")
 }

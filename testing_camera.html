@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camera Testing</title>
+    <link rel="manifest" href="pwa-manifest.json" />
+    <script defer src = "testing_camera.js"></script>
+</head>
+    <body>
+        <div class="camera">
+            <video id="video" autoplay muted playsinline>Video stream not available.</video>
+            <button id="start-button">Capture photo</button>
+
+            <!-- maybe -->
+            <!-- <button id = "permissions-button" onclick="allowCamera()">Allow Camera</button> -->
+            <button id = "permissions-button">Allow Camera</button>
+
+        </div>
+
+        <canvas id="canvas"></canvas>
+        <div class="output">
+            <!-- <img id="photo" src="" alt="The screen capture will appear in this box." /> -->
+        </div>
+        <div id = "profilePictureDiv"></div>
+        <!-- <script src = "testing_camera.js"></script> -->
+    </body>
+</html>
