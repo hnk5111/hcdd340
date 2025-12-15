@@ -422,3 +422,12 @@ window.__responsiveApp = {
   getWorkouts: () => workouts,
   renderAll
 };
+
+renderProfilePicture()
+function renderProfilePicture() {
+  let profileSource = localStorage.getItem("profilePicture")
+  if(profileSource != null) {
+    let profilePic = document.querySelector(".avatar-img");
+    profilePic.src = profileSource;
+  }
+}
