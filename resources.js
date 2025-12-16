@@ -1,4 +1,26 @@
-localStorage.clear();
+window.onload = function() {
+    renderResources()
+};
+
+function renderResources() {
+    if(localStorage.getItem("favoriteVideos") != null) {
+        let favoriteVideosJSON = JSON.parse(localStorage.getItem("favoriteVideos"));
+        let length = Object.keys(favoriteVideosJSON).length;
+
+        let keys = Object.keys(favoriteVideosJSON);
+        let div = document.querySelector("#saved-videos-div")
+        div.innerHTML = ""
+        for(let i = 0; i < length; i++) {
+            let favVideo = (favoriteVideosJSON[keys[i]].link)
+            let pTag = document.createElement("p")
+            pTag.id = favVideo
+            pTag.textContent = favVideo;
+            div.appendChild(pTag)
+        }
+    }
+}
+
+
 function save(video_link) {
     if(localStorage.getItem("favoriteVideos") != null) {
         let favoriteVideosArray = JSON.parse(localStorage.getItem("favoriteVideos"));
@@ -17,15 +39,9 @@ function save(video_link) {
         localStorage.setItem("favoriteVideos", JSON.stringify(favoriteVideosJSON))        
     }
 
-    let button = document.querySelector(`${video_link}button`)
+    console.log(video_link.substring(22, 29))
+    let button = document.getElementById(video_link.substring(22, 29))
     button.textContent = "Saved!"
-}
+    renderResources()
 
-renderResources()
-
-function renderResources() {
-    if(localStorage.getItem("favoriteVideos") != null) {
-        let favoriteVideosJSON = 
-        let keys = 
-    }
 }
