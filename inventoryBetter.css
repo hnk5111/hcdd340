@@ -45,33 +45,30 @@ h1 {
     }
 
     .inventory-card:hover {
-        /* * { */
-            margin: 1.5em;
-        /* } */
         /* makes card lighter when hovered */
-        filter: brightness(130%)
+        filter: brightness(140%)
         /* background-color: lighten(); */
     }
 
     #add-item-button {
-    /* position: fixed; */
-    /* top: 1em; */
-    /* left: 2em; */
-    height: 10rem;
-    width: 10rem;
+        /* position: fixed; */
+        /* top: 1em; */
+        /* left: 2em; */
+        height: 10rem;
+        width: 10rem;
 
-    font-weight: bold;
-    color: white;
-    background-color: #ff3b30;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+        font-weight: bold;
+        color: white;
+        background-color: #ff3b30;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
 
-    h1 {
-        font-size: 10em;
-    }
+        h1 {
+            font-size: 10em;
+        }
 }
 
 }

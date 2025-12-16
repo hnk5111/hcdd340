@@ -6,23 +6,23 @@
     "display": "minimal-ui",
     "icons": [
         {
-            "src": "icons/shield-96.png",
+            "src": "my-icons/PoWR_Icon.png",
             "sizes": "96x96"
         },
         {
-            "src": "icons/shield-128.png",
+            "src": "my-icons/PoWR_Icon.png",
             "sizes": "128x128"
         },
         {
-            "src": "icons/shield-192.png",
+            "src": "my-icons/PoWR_Icon.png",
             "sizes": "192x192"
         },
         {
-            "src": "icons/shield-256.png",
+            "src": "my-icons/PoWR_Icon.png",
             "sizes": "256x256"
         },
         {
-            "src": "icons/shield-512.png",
+            "src": "my-icons/PoWR_Icon.png",
             "sizes": "512x512"
         }
     ]
