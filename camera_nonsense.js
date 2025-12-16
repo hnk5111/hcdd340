@@ -1,4 +1,4 @@
-// activateCamera()
+activateCamera()
 
 function activateCamera() {
     // source: https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos
@@ -88,11 +88,13 @@ function activateCamera() {
     }
 
     
-    // this is mostly for me (Lawrence) to test to make sure that the saved photos actually save and store properly
-    if(localStorage.getItem("profilePicture") != null) {
-        let img = document.createElement("img")
-        let div = document.querySelector("#profilePictureDiv")
-        img.src = localStorage.getItem("profilePicture")
-        div.appendChild(img)
-    }
+
 }
+
+// this is mostly for me (Lawrence) to test to make sure that the saved photos actually save and store properly
+// if(localStorage.getItem("profilePicture") != null) {
+//     let img = document.createElement("img")
+//     let div = document.querySelector("#profilePictureDiv")
+//     img.src = localStorage.getItem("profilePicture")
+//     div.appendChild(img)
+// }

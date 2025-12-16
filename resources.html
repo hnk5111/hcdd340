@@ -7,14 +7,43 @@
     <!-- <link rel="stylesheet" href="calendar.css" /> -->
     <link rel="manifest" href="pwa-manifest.json" />
     <script src = "resources.js"></script>
+    <!-- base project css (do not edit) -->
+    <link rel="stylesheet" href="default.css" />
+
 </head>
     <body>
+<!-- Hamburger (mobile only) -->
+<button id="hamburger" class="hamburger" type="button" aria-label="Open menu">☰</button>
 
+<div class="layout">
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+        <div class="brand">
+            <!-- IMPORTANT: this path must match your real logo file -->
+            <img src="my-icons/powrlogo.png" alt="POWR Logo" class="sidebar-logo" />
+        </div>
+
+        <nav class="navlinks">
+            <a href="profile.html" class="navbtn">Profile</a>
+            <a href="workout.html" class="navbtn">Workout</a>
+            <a href="Calendar.html" class="navbtn active">Calendar</a>
+            <a href="inventory.html" class="navbtn">Inventory</a>
+            <a href="resources.html" class="navbtn">Resources</a>
+            <a href="community.html" class="navbtn">Community</a>
+            <a href="coach.html" class="navbtn">Coach</a>
+            <a href="inventoryBetter.html" class="navbtn">Inventory</a>
+        </nav>
+    </aside>
         <div>
+            <h1>Saved Videos</h1>
             <div>
-                <!-- sample youtube video -->
+                <!-- sample youtube videos -->
                 <iframe id = "www.youtube.com/embed/JBJqZKx7MLI?si=CNBvg7dHK2TXAlX-" width="560" height="315" src="https://www.youtube.com/embed/JBJqZKx7MLI?si=CNBvg7dHK2TXAlX-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <button onclick='save("www.youtube.com/embed/JBJqZKx7MLI?si=CNBvg7dHK2TXAlX-")'class = "save_button" id ="www.youtube.com/embed/JBJqZKx7MLI?si=CNBvg7dHK2TXAlX-button">Save</button>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/963IzC3tyG0?si=ykA0r64vNRZHRFWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <button onclick='save("www.youtube.com/embed/963IzC3tyG0?si=ykA0r64vNRZHRFWE")'class = "save_button" id ="www.youtube.com/embed/963IzC3tyG0?si=ykA0r64vNRZHRFWEbutton">Save</button>
+
             </div>
         </div>
         
